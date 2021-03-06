@@ -5,16 +5,16 @@
 }
 
 body {
-    color: #545454;
+    color: red;
     display: flex;
     font-family: sans-serif;
     justify-content: center;
 }
 
 .container {
-    background: #14BDAC;
+    background: rgb(212, 199, 199);
     margin: 50px;
-    padding: 50px;
+    padding: 25px;
     border-radius: 25px;
 }
 
@@ -47,22 +47,24 @@ body {
 }
 
 .game-grid {
-    background: #0DA192;
+    background: rgb(104, 94, 94);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    grid-gap: 15px;
-    margin-top: 50px;
+    grid-gap: 8px;
+    margin-top: 70px;
+    border-radius: 15px;
 }
 
 .game-cell {
-    background: #14BDAC;
+    background: rgb(212, 199, 199);
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    height: 200px;
-    width: 200px;
+    height: 125px;
+    width: 150px;
+    border-radius: 15px;
 }
 
 .x,
@@ -72,17 +74,20 @@ body {
 
 .x::after {
     content: '×';
-    font-size: 200px;
+    font-size: 100px;
 }
 
 .o::after {
     content: '○';
     color: #F2EBD3;
-    font-size: 225px;
+    font-size: 125px;
+    margin-bottom: 15px;
 }
 
 .won::after {
-    color: #BD022F;
+    background: url(https://media.giphy.com/media/c1R3XcUXVWAFy/giphy.gif) repeat 0 0;
+    height: 125px;
+    width: 150px;
 }
 
 @media only screen and (max-width: 1024px) {
@@ -116,5 +121,25 @@ body {
     }
     .o::after {
         font-size: 125px;
+    }
+}
+
+.animation-animated {
+    background: gray url(https://subtlepatterns.com/patterns/geometry2.png) repeat 0 0;
+    width: 100%;
+    margin: 0;
+    text-align: center;
+    height: 300px;
+    padding-top: 120px;
+    box-sizing: border-box;
+    -webkit-animation: slide 20s linear infinite;
+}
+
+@-webkit-keyframes slide {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -400px 0;
     }
 }
