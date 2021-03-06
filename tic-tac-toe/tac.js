@@ -1,124 +1,129 @@
-const player = "O";
-const computer = "X";
+const statusDiv = document.querySelector('.status');
+const resetDiv = document.querySelector('.reset');
+const cellDivs = document.querySelectorAll('.game-cell');
 
-let board_full = false;
-let play_board = ["", "", "", "", "", "", "", "", ""];
+// game constants
+const xSymbol = '×';
+const oSymbol = '○';
 
-const board_container = document.querySelector(".play-area");
+// game variables
+let gameIsLive = true;
+let xIsNext = true;
 
-const winner_statement = document.getElementById("winner");
 
-check_board_complete = () => {
-    let flag = true;
-    play_board.forEach(element => {
-        if (element != player && element != computer) {
-            flag = false;
+// functions
+const letterToSymbol = (letter) => letter === 'x' ? xSymbol : oSymbol;
+
+const handleWin = (letter) => {
+    gameIsLive = false;
+    if (letter === 'x') {
+        statusDiv.innerHTML = `${letterToSymbol(letter)} has won!`;
+    } else {
+        statusDiv.innerHTML = `<span>${letterToSymbol(letter)} has won!</span>`;
+    }
+};
+
+const checkGameStatus = () => {
+    const topLeft = cellDivs[0].classList[1];
+    const topMiddle = cellDivs[1].classList[1];
+    const topMiddleOne = cellDivs[1].classList[1];
+    const topRight = cellDivs[2].classList[1];
+    const middleLeft = cellDivs[3].classList[1];
+    const middleMiddle = cellDivs[4].classList[1];
+
+    const middleRight = cellDivs[5].classList[1];
+    const bottomLeft = cellDivs[6].classList[1];
+    const bottomMiddle = cellDivs[7].classList[1];
+
+    const bottomRight = cellDivs[8].classList[1];
+
+    // check winner
+    if (topLeft && topLeft === topMiddle && topLeft === topRight) {
+        handleWin(topLeft);
+        cellDivs[0].classList.add('won');
+        cellDivs[1].classList.add('won');
+        cellDivs[2].classList.add('won');
+    } else if (middleLeft && middleLeft === middleMiddle && middleLeft === middleRight) {
+        handleWin(middleLeft);
+        cellDivs[3].classList.add('won');
+        cellDivs[4].classList.add('won');
+        cellDivs[5].classList.add('won');
+    } else if (bottomLeft && bottomLeft === bottomMiddle && bottomLeft === bottomRight) {
+        handleWin(bottomLeft);
+        cellDivs[6].classList.add('won');
+        cellDivs[7].classList.add('won');
+        cellDivs[8].classList.add('won');
+    } else if (topLeft && topLeft === middleLeft && topLeft === bottomLeft) {
+        handleWin(topLeft);
+        cellDivs[0].classList.add('won');
+        cellDivs[3].classList.add('won');
+        cellDivs[6].classList.add('won');
+    } else if (topMiddle && topMiddle === middleMiddle && topMiddle === bottomMiddle) {
+        handleWin(topMiddle);
+        cellDivs[1].classList.add('won');
+        cellDivs[4].classList.add('won');
+        cellDivs[7].classList.add('won');
+    } else if (topRight && topRight === middleRight && topRight === bottomRight) {
+        handleWin(topRight);
+        cellDivs[2].classList.add('won');
+        cellDivs[5].classList.add('won');
+        cellDivs[8].classList.add('won');
+    } else if (topLeft && topLeft === middleMiddle && topLeft === bottomRight) {
+        handleWin(topLeft);
+        cellDivs[0].classList.add('won');
+        cellDivs[4].classList.add('won');
+        cellDivs[8].classList.add('won');
+    } else if (topRight && topRight === middleMiddle && topRight === bottomLeft) {
+        handleWin(topRight);
+        cellDivs[2].classList.add('won');
+        cellDivs[4].classList.add('won');
+        cellDivs[6].classList.add('won');
+    } else if (topLeft && topMiddle && topRight && middleLeft && middleMiddle && middleRight && bottomLeft && bottomMiddle && bottomRight) {
+        gameIsLive = false;
+        statusDiv.innerHTML = 'Game is tied!';
+    } else {
+        xIsNext = !xIsNext;
+        if (xIsNext) {
+            statusDiv.innerHTML = `${xSymbol} is next`;
+        } else {
+            statusDiv.innerHTML = `<span>${oSymbol} is next</span>`;
         }
-    });
-    board_full = flag;
-};
-
-
-const check_line = (a, b, c) => {
-    return (
-        play_board[a] == play_board[b] &&
-        play_board[b] == play_board[c] &&
-        (play_board[a] == player || play_board[a] == computer)
-    );
-};
-
-const check_match = () => {
-    for (i = 0; i < 9; i += 3) {
-        if (check_line(i, i + 1, i + 2)) {
-            document.querySelector(`#block_${i}`).classList.add("win");
-            document.querySelector(`#block_${i + 1}`).classList.add("win");
-            document.querySelector(`#block_${i + 2}`).classList.add("win");
-            return play_board[i];
-        }
-    }
-    for (i = 0; i < 3; i++) {
-        if (check_line(i, i + 3, i + 6)) {
-            document.querySelector(`#block_${i}`).classList.add("win");
-            document.querySelector(`#block_${i + 3}`).classList.add("win");
-            document.querySelector(`#block_${i + 6}`).classList.add("win");
-            return play_board[i];
-        }
-    }
-    if (check_line(0, 4, 8)) {
-        document.querySelector("#block_0").classList.add("win");
-        document.querySelector("#block_4").classList.add("win");
-        document.querySelector("#block_8").classList.add("win");
-        return play_board[0];
-    }
-    if (check_line(2, 4, 6)) {
-        document.querySelector("#block_2").classList.add("win");
-        document.querySelector("#block_4").classList.add("win");
-        document.querySelector("#block_6").classList.add("win");
-        return play_board[2];
-    }
-    return "";
-};
-
-const check_for_winner = () => {
-    let res = check_match()
-    if (res == player) {
-        winner.innerText = "Winner is player!!";
-        winner.classList.add("playerWin");
-        board_full = true
-    } else if (res == computer) {
-        winner.innerText = "Winner is computer";
-        winner.classList.add("computerWin");
-        board_full = true
-    } else if (board_full) {
-        winner.innerText = "Draw!";
-        winner.classList.add("draw");
     }
 };
 
 
-const render_board = () => {
-    board_container.innerHTML = ""
-    play_board.forEach((e, i) => {
-        board_container.innerHTML += `<div id="block_${i}" class="block" onclick="addPlayerMove(${i})">${play_board[i]}</div>`
-        if (e == player || e == computer) {
-            document.querySelector(`#block_${i}`).classList.add("occupied");
-        }
-    });
+// event Handlers
+const handleReset = () => {
+    xIsNext = true;
+    statusDiv.innerHTML = `${xSymbol} is next`;
+    for (const cellDiv of cellDivs) {
+        cellDiv.classList.remove('x');
+        cellDiv.classList.remove('o');
+        cellDiv.classList.remove('won');
+    }
+    gameIsLive = true;
 };
 
-const game_loop = () => {
-    render_board();
-    check_board_complete();
-    check_for_winner();
+const handleCellClick = (e) => {
+    const classList = e.target.classList;
+
+    if (!gameIsLive || classList[1] === 'x' || classList[1] === 'o') {
+        return;
+    }
+
+    if (xIsNext) {
+        classList.add('x');
+        checkGameStatus();
+    } else {
+        classList.add('o');
+        checkGameStatus();
+    }
+};
+
+
+// event listeners
+resetDiv.addEventListener('click', handleReset);
+
+for (const cellDiv of cellDivs) {
+    cellDiv.addEventListener('click', handleCellClick)
 }
-
-const addPlayerMove = e => {
-    if (!board_full && play_board[e] == "") {
-        play_board[e] = player;
-        game_loop();
-        addComputerMove();
-    }
-};
-
-const addComputerMove = () => {
-    if (!board_full) {
-        do {
-            selected = Math.floor(Math.random() * 9);
-        } while (play_board[selected] != "");
-        play_board[selected] = computer;
-        game_loop();
-    }
-};
-
-const reset_board = () => {
-    play_board = ["", "", "", "", "", "", "", "", ""];
-    board_full = false;
-    winner.classList.remove("playerWin");
-    winner.classList.remove("computerWin");
-    winner.classList.remove("draw");
-    winner.innerText = "";
-    render_board();
-};
-
-//initial render
-render_board();
