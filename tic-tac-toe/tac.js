@@ -67,21 +67,31 @@ const checkGameStatus = () => {
         cellDivs[14].classList.add('won');
         cellDivs[15].classList.add('won');
         //else statements for the across section completed
-    } else if (topLeft && topLeft === middleLeft && topLeft === bottomLeft) {
+    } else if (topLeft && topLeft === middleLeft && middleLeftOne && topLeft === bottomLeft) {
         handleWin(topLeft);
         cellDivs[0].classList.add('won');
-        cellDivs[3].classList.add('won');
-        cellDivs[6].classList.add('won');
-    } else if (topMiddle && topMiddle === middleMiddle && topMiddle === bottomMiddle) {
+        cellDivs[4].classList.add('won');
+        cellDivs[8].classList.add('won');
+        cellDivs[12].classList.add('won');
+    } else if (topMiddle && topMiddle === middleMiddle && middleMiddleTwo && topMiddle === bottomMiddle) {
         handleWin(topMiddle);
         cellDivs[1].classList.add('won');
-        cellDivs[4].classList.add('won');
-        cellDivs[7].classList.add('won');
-    } else if (topRight && topRight === middleRight && topRight === bottomRight) {
-        handleWin(topRight);
-        cellDivs[2].classList.add('won');
         cellDivs[5].classList.add('won');
-        cellDivs[8].classList.add('won');
+        cellDivs[9].classList.add('won');
+        cellDivs[13].classList.add('won');
+    } else if (topMiddleOne && topMiddleOne === middleMiddleOne && middleMiddleThree && topMiddleOne === bottomMiddleOne) {
+        handleWin(topMiddleOne);
+        cellDivs[2].classList.add('won');
+        cellDivs[6].classList.add('won');
+        cellDivs[10].classList.add('won');
+        cellDivs[14].classList.add('won');
+    } else if (topRight && topRight === middleRight && middleRightOne && topRight === bottomRight) {
+        handleWin(topRight);
+        cellDivs[3].classList.add('won');
+        cellDivs[7].classList.add('won');
+        cellDivs[11].classList.add('won');
+        cellDivs[15].classList.add('won');
+        //top to bottom has been completed
     } else if (topLeft && topLeft === middleMiddle && topLeft === bottomRight) {
         handleWin(topLeft);
         cellDivs[0].classList.add('won');
