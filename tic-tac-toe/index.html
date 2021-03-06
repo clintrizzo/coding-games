@@ -10,28 +10,18 @@
 </head>
 
 <body>
-    <section>
-        <button class="gameRestart">Restart Tic Tac Toe game</button>
-        <h2 class="game--status"></h2>
-        <div class="game--container">
-            <div data-cell-index="0" class="cell"></div>
-            <div data-cell-index="1" class="cell"></div>
-            <div data-cell-index="2" class="cell"></div>
-            <div data-cell-index="3" class="cell"></div>
-            <div data-cell-index="4" class="cell"></div>
-            <div data-cell-index="5" class="cell"></div>
-            <div data-cell-index="6" class="cell"></div>
-            <div data-cell-index="7" class="cell"></div>
-            <div data-cell-index="8" class="cell"></div>
-            <div data-cell-index="9" class="cell"></div>
-            <div data-cell-index="10" class="cell"></div>
-            <div data-cell-index="11" class="cell"></div>
-            <div data-cell-index="12" class="cell"></div>
-            <div data-cell-index="13" class="cell"></div>
-            <div data-cell-index="14" class="cell"></div>
-            <div data-cell-index="15" class="cell"></div>
+
+    <body>
+        <div class="container">
+            <h1>Tic-Tac-Toe</h1>
+            <div class="play-area">
+
+            </div>
+            <h2 id="winner"></h2>
+            <button onclick="reset_board()">RESET</button>
         </div>
-    </section>
+        <script src="app.js"></script>
+    </body>
     <script src="tac.js"></script>
 </body>
 
