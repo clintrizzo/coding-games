@@ -10,7 +10,7 @@ section {
     display: grid;
     grid-template-columns: repeat(4, auto);
     width: 430px;
-    margin: 50px auto;
+    margin: 55px auto;
 }
 
 .cell {
