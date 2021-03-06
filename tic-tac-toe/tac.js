@@ -104,7 +104,7 @@ const checkGameStatus = () => {
         cellDivs[6].classList.add('won');
         cellDivs[9].classList.add('won');
         cellDivs[12].classList.add('won');
-    } else if (topLeft && topMiddle && topRight && middleLeft && middleMiddle && middleRight && bottomLeft && bottomMiddle && bottomRight) {
+    } else if (topLeft && topMiddle && topMiddleOne && topRight && middleLeft && middleMiddle && middleMiddleOne && middleRight && middleLeftOne && middleMiddleTwo && middleMiddleThree && middleRightOne && bottomLeft && bottomMiddle && bottomMiddleOne && bottomRight) {
         gameIsLive = false;
         statusDiv.innerHTML = 'Game is tied!';
     } else {
