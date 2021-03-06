@@ -42,21 +42,31 @@ const checkGameStatus = () => {
     const bottomRight = cellDivs[15].classList[1];
 
     // check winner
-    if (topLeft && topLeft === topMiddle && topLeft === topRight) {
+    if (topLeft && topLeft === topMiddle && topMiddleOne && topLeft === topRight) {
         handleWin(topLeft);
         cellDivs[0].classList.add('won');
         cellDivs[1].classList.add('won');
         cellDivs[2].classList.add('won');
-    } else if (middleLeft && middleLeft === middleMiddle && middleLeft === middleRight) {
-        handleWin(middleLeft);
         cellDivs[3].classList.add('won');
+    } else if (middleLeft && middleLeft === middleMiddle && middleMiddleOne && middleLeft === middleRight) {
+        handleWin(middleLeft);
         cellDivs[4].classList.add('won');
         cellDivs[5].classList.add('won');
-    } else if (bottomLeft && bottomLeft === bottomMiddle && bottomLeft === bottomRight) {
-        handleWin(bottomLeft);
         cellDivs[6].classList.add('won');
         cellDivs[7].classList.add('won');
+    } else if (middleLeftOne && middleLeftOne === middleMiddleTwo && middleMiddleThree && middleLeftOne === middleRightOne) {
+        handleWin(middleLeftOne);
         cellDivs[8].classList.add('won');
+        cellDivs[9].classList.add('won');
+        cellDivs[10].classList.add('won');
+        cellDivs[11].classList.add('won');
+    } else if (bottomLeft && bottomLeft === bottomMiddle && bottomMiddleOne && bottomLeft === bottomRight) {
+        handleWin(bottomLeft);
+        cellDivs[12].classList.add('won');
+        cellDivs[13].classList.add('won');
+        cellDivs[14].classList.add('won');
+        cellDivs[15].classList.add('won');
+        //else statements for the across section completed
     } else if (topLeft && topLeft === middleLeft && topLeft === bottomLeft) {
         handleWin(topLeft);
         cellDivs[0].classList.add('won');
