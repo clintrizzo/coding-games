@@ -92,16 +92,18 @@ const checkGameStatus = () => {
         cellDivs[11].classList.add('won');
         cellDivs[15].classList.add('won');
         //top to bottom has been completed
-    } else if (topLeft && topLeft === middleMiddle && topLeft === bottomRight) {
+    } else if (topLeft && topLeft === middleMiddle && middleMiddleThree && topLeft === bottomRight) {
         handleWin(topLeft);
         cellDivs[0].classList.add('won');
-        cellDivs[4].classList.add('won');
-        cellDivs[8].classList.add('won');
-    } else if (topRight && topRight === middleMiddle && topRight === bottomLeft) {
+        cellDivs[5].classList.add('won');
+        cellDivs[10].classList.add('won');
+        cellDivs[15].classList.add('won');
+    } else if (topRight && topRight === middleMiddleOne && middleMiddleTwo && topRight === bottomLeft) {
         handleWin(topRight);
-        cellDivs[2].classList.add('won');
-        cellDivs[4].classList.add('won');
+        cellDivs[3].classList.add('won');
         cellDivs[6].classList.add('won');
+        cellDivs[9].classList.add('won');
+        cellDivs[12].classList.add('won');
     } else if (topLeft && topMiddle && topRight && middleLeft && middleMiddle && middleRight && bottomLeft && bottomMiddle && bottomRight) {
         gameIsLive = false;
         statusDiv.innerHTML = 'Game is tied!';
