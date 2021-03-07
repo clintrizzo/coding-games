@@ -9,6 +9,7 @@ body {
     display: flex;
     font-family: sans-serif;
     justify-content: center;
+    margin-top: -300px;
 }
 
 .container {
@@ -35,7 +36,7 @@ body {
 }
 
 .status span {
-    color: #F2EBD3;
+    color: grey;
 }
 
 .reset {
@@ -43,7 +44,7 @@ body {
 }
 
 .reset:hover {
-    color: #F2EBD3;
+    color: grey;
 }
 
 .game-grid {
@@ -52,8 +53,8 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     grid-gap: 8px;
-    margin-top: 70px;
-    border-radius: 15px;
+    margin-top: 60px;
+    border-radius: 20px;
 }
 
 .game-cell {
@@ -62,9 +63,9 @@ body {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    height: 125px;
+    height: 145px;
     width: 150px;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 .x,
@@ -81,12 +82,11 @@ body {
     content: '○';
     color: #F2EBD3;
     font-size: 125px;
-    margin-bottom: 15px;
 }
 
 .won::after {
     background: url(https://media.giphy.com/media/c1R3XcUXVWAFy/giphy.gif) repeat 0 0;
-    height: 125px;
+    height: 145px;
     width: 150px;
 }
 
@@ -112,7 +112,8 @@ body {
         margin: 25px;
         padding: 25px;
     }
-    .game-cell {
+    .game-cell,
+    .won::after {
         height: 100px;
         width: 100px;
     }
@@ -125,7 +126,7 @@ body {
 }
 
 .animation-animated {
-    background: gray url(https://subtlepatterns.com/patterns/geometry2.png) repeat 0 0;
+    background: black url(https://subtlepatterns.com/patterns/geometry2.png) repeat 0 0;
     width: 100%;
     margin: 0;
     text-align: center;
