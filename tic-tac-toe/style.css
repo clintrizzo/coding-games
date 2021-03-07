@@ -9,7 +9,6 @@ body {
     display: flex;
     font-family: sans-serif;
     justify-content: center;
-    margin-top: -300px;
 }
 
 .container {
@@ -65,7 +64,7 @@ body {
     cursor: pointer;
     height: 145px;
     width: 150px;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
 .x,
@@ -81,13 +80,13 @@ body {
 .o::after {
     content: '○';
     color: #F2EBD3;
-    font-size: 125px;
+    font-size: 135px;
 }
 
 .won::after {
     background: url(https://media.giphy.com/media/c1R3XcUXVWAFy/giphy.gif) repeat 0 0;
-    height: 145px;
-    width: 150px;
+    height: 100%;
+    width: 100%;
 }
 
 @media only screen and (max-width: 1024px) {
