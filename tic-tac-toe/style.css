@@ -11,6 +11,9 @@ body {
     background-repeat: none;
     position: absolute;
     justify-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
     left: 0;
 }
