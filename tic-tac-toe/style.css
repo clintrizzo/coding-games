@@ -9,6 +9,28 @@ body {
     display: flex;
     font-family: sans-serif;
     justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: none;
+    position: relative;
+}
+
+:root {
+    --direction: -45deg;
+}
+
+.background {
+    background-image: url(https://source.unsplash.com/1600x900/?day);
+}
+
+#foreground {
+    background-image: url(https://source.unsplash.com/1600x900/?night);
+    mask-image: linear-gradient(var(--direction), rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 60%);
+    mask-position: 50% 50%;
 }
 
 .container {
@@ -121,25 +143,5 @@ body {
     }
     .o::after {
         font-size: 125px;
-    }
-}
-
-.animation-animated {
-    background: black url(https://subtlepatterns.com/patterns/geometry2.png) repeat 0 0;
-    width: 100%;
-    margin: 0;
-    text-align: center;
-    height: 300px;
-    padding-top: 120px;
-    box-sizing: border-box;
-    -webkit-animation: slide 20s linear infinite;
-}
-
-@-webkit-keyframes slide {
-    from {
-        background-position: 0 0;
-    }
-    to {
-        background-position: -400px 0;
     }
 }
