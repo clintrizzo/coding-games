@@ -6,13 +6,10 @@
 
 body {
     color: red;
-    background-size: cover;
-    background-repeat: none;
     display: flex;
     font-family: sans-serif;
     justify-content: center;
     align-items: center;
-    position: fixed;
     /**/
     position: absolute;
     top: 0;
@@ -21,9 +18,6 @@ body {
     height: 100vh;
     background-size: cover;
     background-repeat: none;
-    position: relative;
-    margin: 0;
-    padding: 0;
 }
 
 .background {
