@@ -1,0 +1,24 @@
+{
+    "name": "coding-games",
+    "version": "1.0.0",
+    "description": "",
+    "main": "script.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "lint": "eslint"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/clintrizzo/coding-games.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/clintrizzo/coding-games/issues"
+    },
+    "homepage": "https://github.com/clintrizzo/coding-games#readme",
+    "dependencies": {
+        "eslint": "^7.21.0"
+    }
+}
