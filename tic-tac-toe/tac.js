@@ -154,10 +154,10 @@ for (const cellDiv of cellDivs) {
     cellDiv.addEventListener('click', handleCellClick)
 }
 
-let c = 45;
+let i = 45;
 
 function draw() {
-    document.documentElement.style.setProperty('--direction', c++ + 'deg');
+    document.documentElement.style.setProperty('--direction', i++ + 'deg');
     requestAnimationFrame(draw);
 }
 
