@@ -117,7 +117,6 @@ const checkGameStatus = () => {
 };
 
 
-// event Handlers
 const handleReset = () => {
     xIsNext = true;
     statusDiv.innerHTML = `${xSymbol} is next`;

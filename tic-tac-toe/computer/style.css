@@ -1,86 +1,97 @@
-$border-style: 3px solid #525B76;
-$mainColor: #29335C;
-$secColor: #525B76;
-$thiColor: #EAEAEA;
-$fouColor: #E4572E;
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600);
-body {
-    font-family: 'Source Sans Pro';
-    background: $mainColor;
-    background-size: cover;
-}
-
-.game {
-    background-color: transparent;
-    width: 402px;
-    height: 402px;
-    margin: 50px auto;
-}
-
-.game-field {
-    width: 134px;
-    height: 134px;
-    display: block;
-    float: left;
-    color: $thiColor;
-    font-size: 6.3em;
-    padding: 1px 27px;
-}
-
-.win {
-    color: $fouColor;
-    transition: 200ms;
-}
-
-#first,
-#second,
-#third {
-    border-bottom: $border-style;
-}
-
-#second {
-    border-left: $border-style;
-    border-right: $border-style;
-}
-
-#fourth,
-#fifth,
-#sixth {
-    border-bottom: $border-style;
-}
-
-#fifth {
-    border-left: $border-style;
-    border-right: $border-style;
-}
-
-#eight {
-    border-left: $border-style;
-    border-right: $border-style;
-}
-
-.modal-content {
-    background-color: $thiColor;
-}
-
-.modal-header {
-    background-color: $mainColor;
-    width: 100%;
-    height: 100%;
-    color: $thiColor;
-    button {
-        color: $thiColor;
-        &:hover {
-            color: $thiColor;
-        }
-    }
-    h4 {
-        font-size: 2.3em;
-    }
-}
-
-.modal-body {
-    padding: 30px;
-    margin: 10px 0;
+td {
+    border: 2px solid #333;
+    height: 100px;
+    width: 100px;
     text-align: center;
+    vertical-align: middle;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 70px;
+    cursor: pointer;
+}
+
+table {
+    border-collapse: collapse;
+    position: absolute;
+    left: 50%;
+    margin-left: -155px;
+    top: 50px;
+}
+
+table tr:first-child td {
+    border-top: 0;
+}
+
+table tr:last-child td {
+    border-bottom: 0;
+}
+
+table tr td:first-child {
+    border-left: 0;
+}
+
+table tr td:last-child {
+    border-right: 0;
+}
+
+.endgame {
+    display: none;
+    width: 200px;
+    top: 120px;
+    background-color: rgba(205, 133, 63, 0.8);
+    position: absolute;
+    left: 50%;
+    margin-left: -100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-size: 2em;
+}
+
+.container {
+    background: rgb(212, 199, 199);
+    border-radius: 25px;
+    margin: 50px;
+    padding: 50px;
+    border-radius: 25px;
+}
+
+.title {
+    text-align: center;
+}
+
+.title span {
+    color: #F2EBD3;
+}
+
+.status-action {
+    display: flex;
+    margin-top: 25px;
+    font-size: 25px;
+    justify-content: space-around;
+    height: 30px;
+}
+
+.status span {
+    color: red;
+}
+
+.reset {
+    cursor: pointer;
+}
+
+.reset:hover {
+    color: grey;
+}
+
+.game-grid {
+    background: rgb(104, 94, 94);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 8px;
+    margin-top: 50px;
+    border-radius: 20px;
+    align-items: center;
 }
